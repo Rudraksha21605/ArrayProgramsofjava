@@ -1,0 +1,36 @@
+import java.util.*;
+class MaximumCPandNP
+{
+    public static int Solution(int [] nums){
+        int n=nums.length;
+        int right=n-1;
+        int NegPos=binarysearch(nums,0,right,-1);
+        int posPos=binarysearch(nums,NegPos,right,0);
+        int posCount=n-posPos;
+        return Math.max(NegPos,posCount);
+    }
+    public static int binarysearch(int[]nums,int left,int right,int target){
+        while(left<=right){
+            int mid=left+(right-left)/2;
+            if(nums[mid]>=target){
+                right=mid-1;
+            }
+            else{
+                left=mid+1;
+            }
+        }
+        return left;
+    }
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter size of array");
+        int n=sc.nextInt();
+        System.out.println("Enter array");
+        int [] nums=new int[n];
+        for(int i=0;i<n;i++){
+            nums[i]=sc.nextInt();
+        }
+        int k=Solution(nums);
+        System.out.println(k);
+    }
+}
