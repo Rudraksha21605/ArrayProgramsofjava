@@ -1,0 +1,33 @@
+import java.util.*;
+class ArrangingCoins
+{
+    public static  int Solution (int num) {
+        long left=0;
+        long right=num;
+        long ans=0;
+        while(left<=right){
+            long k=left+(right-left)/2;
+            long m=k*(k+1)/2;
+            if(m==num){
+                return (int)k;
+            }
+            else if(m>num){
+                right=k-1;
+            }
+            else{
+                left=k+1;
+                ans=k;
+            }
+        }
+        return (int)ans;
+    }
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter number");
+        int num=sc.nextInt();
+        int k=Solution(num);
+        System.out.println(k);
+    }
+}
+
+        
