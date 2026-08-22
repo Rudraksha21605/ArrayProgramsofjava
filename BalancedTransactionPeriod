@@ -1,0 +1,31 @@
+import java.util.*;
+class BTP{
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int[] arr=new int[n];
+        for(int i=0;i<n;i++){
+            arr[i]=sc.nextInt();
+        }
+        int k=sc.nextInt();
+        int x=balance(arr,k);
+        System.out.println(x);
+    }
+    public static int balance(int [] arr,int k){
+        int n= arr.length;
+        int count=0;
+        for(int i=0;i<n;i++){
+            int sum=0;
+            int j=i;
+            while(j<n){
+                sum=sum+arr[j];
+                if(sum==k){
+                    count++;
+                }
+                j++;
+            }
+        }
+        return count;
+    }
+}
+      
