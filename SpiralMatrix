@@ -1,0 +1,33 @@
+ List<Integer> ans=new ArrayList<>();
+        int stcol=0;
+        int endcl=matrix[0].length-1;
+        int fr=0;
+        int lr=matrix.length-1;
+        while(stcol<=endcl && fr<=lr){
+            for(int i=stcol;i<=endcl;i++){
+                ans.add(matrix[stcol][i]);
+            }
+            fr++;
+            if(fr>lr || stcol>endcl) break;
+            for(int j=fr;j<=lr;j++){
+                ans.add(matrix[j][endcl]);
+                }
+            endcl--;
+            if(fr>lr || stcol>endcl) break;
+            for(int k=endcl;k>=stcol;k--){
+                ans.add(matrix[lr][k]);
+                }
+            lr--;
+            if(fr>lr || stcol>endcl) break;
+            for(int k=lr;k>=fr;k--){
+                ans.add(matrix[k][stcol]);
+                }
+            stcol++;
+        }
+        return ans;
+    }
+}
+        
+View less
+ 
+
