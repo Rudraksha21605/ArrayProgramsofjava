@@ -1,0 +1,35 @@
+ int [][] ans=new int[n][n];
+        int stcol=0;
+        int endcl=n-1;
+        int fr=0;
+        int lr=n-1;
+        int j=1;
+        while(stcol<=endcl && fr<=lr){
+            if(stcol>endcl || fr>lr) break;
+            for(int i=stcol;i<=endcl;i++){
+                ans[stcol][i]=j;
+                j++;
+            }
+            fr++;
+            if(stcol>endcl || fr>lr) break;
+            for(int i=fr;i<=lr;i++){
+                ans[i][endcl]=j;
+                j++;
+            }
+            endcl--;
+            if(stcol>endcl || fr>lr) break;
+            for(int i=endcl;i>=stcol;i--){
+                ans[lr][i]=j;
+                j++;
+            }
+            lr--;
+            if(stcol>endcl || fr>lr) break;
+            for(int i=lr;i>=fr;i--){
+                ans[i][stcol]=j;
+                j++;
+            }
+            stcol++;
+        }
+        return ans;
+    }
+}
