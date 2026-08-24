@@ -1,0 +1,21 @@
+if(matrix.length==0){
+            return false;
+        }
+        int m=matrix.length;
+        int n=matrix[0].length;
+        int right=0;
+        int left=n-1;
+        while(left>=0 && right<m){
+            if(matrix[right][left]==target){
+                return true;
+            }
+            else if(matrix[right][left]>target){
+                left--;
+            }
+            else{
+                right++;
+            }
+        }
+        return false;
+    }
+}
