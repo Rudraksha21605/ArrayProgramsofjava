@@ -1,0 +1,24 @@
+class Solution {
+    public int moreFrequent(List<Integer> arr, int x, int y) {
+        int f1=0;
+        int f2=0;
+        // code here
+        for(int i=0;i<arr.size();i++){
+            if(arr.get(i)==x){
+                f1++;
+            }
+            else if(arr.get(i)==y){
+                f2++;
+            }
+        }
+        if(f1>f2){
+            return x;
+        }
+        else if(f1==f2){
+            return Math.min(x,y);
+        }
+        else{
+            return y;
+        }
+    }
+}
