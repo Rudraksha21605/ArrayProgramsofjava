@@ -1,0 +1,18 @@
+class Solution {
+    public int minValueToBalance(List<Integer> arr) {
+        // code here
+        int mid=arr.size()/2;
+        int sum1=0;
+        int sum2=0;
+        for(int i=0;i<mid;i++){
+            sum1+=arr.get(i);
+        }
+        for(int i=mid;i<arr.size();i++){
+            sum2+=arr.get(i);
+        }
+        int max=Math.max(sum1,sum2);
+        int min=Math.min(sum1,sum2);
+        return max-min;
+    }
+}
+      
