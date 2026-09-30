@@ -1,0 +1,33 @@
+import java.util.*;
+
+class Node {
+    int data;
+    Node left;
+    Node right;
+
+    public Node(int data) {
+        this.data = data;
+    }
+}
+
+public class Product {
+    public static int product(Node root) {
+        if (root == null) {
+            return 1;
+        }
+        return root.data * product(root.left) * product(root.right);
+    }
+
+    public static void main(String[] args) {
+        Node root = new Node(10);
+        Node a = new Node(12);
+        Node b = new Node(2);
+        root.left = a;
+        root.right = b;
+        Node c = new Node(4);
+        Node d = new Node(1);
+        a.right = c;
+        a.left = d;
+        System.out.println(product(root));
+    }
+}
