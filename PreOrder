@@ -1,0 +1,40 @@
+import java.util.*;
+
+class Node {
+    int data;
+    Node left;
+    Node right;
+
+    public Node(int data) {
+        this.data = data;
+    }
+}
+
+public class PreOrder {
+    public static void preorder(Node root) {
+        if (root == null) {
+            return;
+        }
+        System.out.print(root.data + " ");
+        preorder(root.left);
+        preorder(root.right);
+
+    }
+
+    public static void main(String[] args) {
+        Node root = new Node(10);
+        Node a = new Node(16);
+        Node b = new Node(12);
+        root.left = a;
+        root.right = b;
+        Node c = new Node(6);
+        Node d = new Node(17);
+        a.left = c;
+        a.right = d;
+        Node e = new Node(25);
+        Node f = new Node(14);
+        b.left = e;
+        b.right = f;
+        preorder(root);
+    }
+}
