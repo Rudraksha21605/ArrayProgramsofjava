@@ -1,0 +1,48 @@
+import java.util.*;
+
+class Node {
+    int data;
+    Node left;
+    Node right;
+
+    public Node(int data) {
+        this.data = data;
+    }
+}
+
+public class BFS {
+    static void bfs(Node root) {
+        Queue<Node> q = new LinkedList<>();
+        if (root != null) {
+            q.add(root);
+        }
+        while (q.size() > 0) {
+            Node temp = q.peek();
+            if (temp.left != null) {
+                q.add(temp.left);
+            }
+            if (temp.right != null) {
+                q.add(temp.right);
+            }
+            System.out.print(temp.data + " ");
+            q.remove();
+        }
+    }
+
+    public static void main(String[] args) {
+        Node root = new Node(10);
+        Node a = new Node(20);
+        Node b = new Node(30);
+        root.left = a;
+        root.right = b;
+        Node c = new Node(40);
+        Node d = new Node(50);
+        a.left = c;
+        a.right = d;
+        Node e = new Node(60);
+        Node f = new Node(70);
+        b.left = e;
+        b.right = f;
+        bfs(root);
+    }
+}
