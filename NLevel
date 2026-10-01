@@ -1,0 +1,42 @@
+import java.util.*;
+
+class Node {
+    int data;
+    Node left;
+    Node right;
+
+    public Node(int data) {
+        this.data = data;
+    }
+}
+
+public class NLevel {
+    static void Nlevel(Node root, int n) {
+        if (root == null) {
+            return;
+        }
+        if (n == 1) {
+            System.out.print(root.data + " ");
+        }
+        Nlevel(root.left, n - 1);
+        Nlevel(root.right, n - 1);
+    }
+
+    public static void main(String[] args) {
+        Node root = new Node(10);
+        Node a = new Node(20);
+        Node b = new Node(30);
+        root.left = a;
+        root.right = b;
+        Node c = new Node(40);
+        Node d = new Node(50);
+        a.left = c;
+        a.right = d;
+        Node e = new Node(50);
+        Node f = new Node(60);
+        b.left = e;
+        b.right = f;
+        int n = 2;
+        Nlevel(root, n);
+    }
+}
