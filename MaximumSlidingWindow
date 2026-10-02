@@ -1,0 +1,25 @@
+class Solution {
+    public int[] maxSlidingWindow(int[] nums, int k) {
+        int right=0;
+        ArrayList<Integer>ans=new ArrayList<>();
+        while(right<=nums.length-k){
+            int j=right;
+            int x=Integer.MIN_VALUE;
+            while(j<right+k){
+                int max=nums[j];
+                x=Math.max(x,max);
+                j++;
+            }
+            ans.add(x);
+            right++;
+        }
+        int y=ans.size();
+        int[] arr=new int[y];
+        for(int i=0;i<y;i++){
+            arr[i]=ans.get(i);
+        }
+        return arr;
+    }
+}
+
+      
